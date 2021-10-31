@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>How cute my babies are</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+            <h4>
+                Plant
+            </h4>
+            <p>
+                {{ form.name }}
+                {% for error in form.name.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <h4>
+                Rating
+            </h4>
+            <p>
+                {{ form.adjective }}
+                {% for error in form.name.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+
+            <p>{{ form.submit() }}</p>
+    </form>
+
+{% endblock %}
