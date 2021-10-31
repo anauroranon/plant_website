@@ -4,7 +4,7 @@ from app import app
 from app.forms.cutenessForm import cutenessForm
 
 
-@app.route('/')  # Those decorators are used to associate the URL given as argument and the the function
+@app.route('/', methods=['GET', 'POST'])  # Those decorators are used to associate the URL given as argument and the the function
 @app.route('/index', methods=['GET', 'POST'])
 def index():
     form = cutenessForm()
@@ -13,5 +13,6 @@ def index():
         plant_adjective = form.adjective.data
 
         return render_template('mypage.html', name=plant_name, adjective=plant_adjective)
+
     return render_template('home.html', title='Home', form=form)
 
